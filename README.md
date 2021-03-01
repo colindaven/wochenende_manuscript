@@ -5,7 +5,7 @@ This is the code used for running the programs associated with the Wochenende ma
 Full citation to come
 
 
-## Metagenomic programs used
+# Metagenomic programs used
 
 ## Kaiju
 
@@ -13,7 +13,9 @@ Full citation to come
 
 ## Centrifuge
 
-## Wochenende
+## Wochenende and Haybaler
 
 
+## Further analysis scripts
 
+Python Pandas scripts
