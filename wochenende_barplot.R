@@ -138,7 +138,7 @@ ggplot(kraken_long, aes(x=sample, y=percentage, fill=chr_name)) +
 
 ### Metaphlan ###
 
-# chr_names where shortened per hand in bash
+# chr_names were shortened per hand in bash
 # import data, select wanted columns and rename them 
 metaphlan <- read.csv(file = '2020_036107_mock/metaphlan/mock_merged_abundance_table_sp_header.txt', sep = "\t")
 metaphlan <- select(metaphlan, -NCBI_tax_id)
