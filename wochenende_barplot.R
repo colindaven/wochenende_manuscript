@@ -175,7 +175,7 @@ ggplot(metaphlan_long, aes(x=sample, y=percentage, fill=chr_name)) +
 haybaler_csv_1 <- read.csv(file = '2020_036107_mock/2021_02_ref/reporting/haybaler_output/RPMM_haybaler.csv', sep = "\t")
 haybaler_csv_2 <- read.csv(file = 'metagen_mock_loman/reporting/haybaler_output/RPMM_haybaler.csv', sep = "\t")
 
-# get RMPP sums for each sample
+# get RPMM sums for each sample
 
 sum_blank <- sum(haybaler_csv_1$mock_blank_S59_R1)
 sum_I <- sum(haybaler_csv_1$mock_I_S57_R1)
