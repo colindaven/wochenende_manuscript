@@ -1,0 +1,5 @@
+# KrakenUniq v0.5.8 DATE:2021-04-26T22:40:29Z DB:/lager2/rcug/seqres/metagenref/krakenuniq/db DB_SIZE:275907263152 WD:/ngsssd1/rcug/wochenende_manuscript/mock_sui_2020
+# CL:perl /mnt/ngsnfs/tools/miniconda3/envs/krakenuniq/bin/krakenuniq --db /lager2/rcug/seqres/metagenref/krakenuniq/db --threads 16 --report-file ./SRR11207337_metagenome_mock_dna_R1.fastq.report.txt ./SRR11207337_metagenome_mock_dna_R1.fastq --unclassified-out ./SRR11207337_metagenome_mock_dna_R1.fastq.unclassified.txt --classified-out ./SRR11207337_metagenome_mock_dna_R1.fastq.classified.txt --output ./SRR11207337_metagenome_mock_dna_R1.fastq.output.txt
+
+%	reads	taxReads	kmers	dup	cov	taxID	rank	taxName
+1.537	192535	192534	32027244	2.56	4.201	0	no rank	unclassified

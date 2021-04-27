@@ -1,0 +1,218 @@
+8.177	1024379	829703	1037726	39	0.01924	28901	species	                Salmonella enterica
+1.505	188487	30634	148445	29.6	0.008277	59201	subspecies	                  Salmonella enterica subsp. enterica
+0.01235	1547	358	7013	1.78	0.001163	59202	subspecies	                  Salmonella enterica subsp. salamae
+0.00629	788	190	1133	6.75	0.0006366	59203	subspecies	                  Salmonella enterica subsp. arizonae
+0.001157	145	68	477	3.05	0.0005966	59205	subspecies	                  Salmonella enterica subsp. houtenae
+0.000926	116	18	729	1.41	0.0004328	59204	subspecies	                  Salmonella enterica subsp. diarizonae
+0.003241	406	311	2301	1.94	0.000498	54736	species	                Salmonella bongori
+0.0001836	23	0	83	5.77	0.003549	2500542	species	                  Salmonella sp. SSDFZ54
+1.443	180777	145220	227302	28.5	0.004662	562	species	                Escherichia coli
+0.01074	1346	765	4053	3.36	0.0005161	208962	species	                Escherichia albertii
+0.005404	677	431	2613	2	0.0006088	564	species	                Escherichia fergusonii
+0.004765	597	0	1794	3.52	0.0005962	1499973	species	                Escherichia marmotae
+0.004622	579	0	1870	2.81	0.0007185	2044467	species	                  Escherichia sp. E4742
+0.01425	1785	724	3707	5.87	0.003463	623	species	                Shigella flexneri
+0.01197	1499	641	4264	3.41	0.002654	622	species	                Shigella dysenteriae
+0.01188	1488	180	2123	21.7	0.005684	624	species	                Shigella sonnei
+0.008956	1122	170	2576	7.22	0.003307	621	species	                Shigella boydii
+0.008836	1107	77	2416	6.02	3.358e-05	354276	species group	                Enterobacter cloacae complex
+0.004757	596	37	662	14.4	6.869e-05	158836	species	                  Enterobacter hormaechei
+0.001349	169	61	601	3.19	3.188e-05	550	species	                  Enterobacter cloacae
+0.001349	169	1	124	7.6	2.293e-05	61645	species	                  Enterobacter asburiae
+0.0003832	48	6	107	7.64	2.019e-05	1812935	species	                  Enterobacter roggenkampii
+0.0006705	84	0	201	4.78	5.012e-05	2596949	species	                  Enterobacter sp. E76
+0.0003113	39	0	85	2.99	2.568e-05	399742	species	                  Enterobacter sp. 638
+0.0002953	37	0	67	3.19	1.748e-05	885040	species	                Enterobacter soli
+0.003592	450	57	1033	13.9	4.498e-05	573	species	                Klebsiella pneumoniae
+0.002171	272	268	408	31	0.0002676	72407	subspecies	                  Klebsiella pneumoniae subsp. pneumoniae
+0.001517	190	133	366	4.15	3.427e-05	548	species	                Klebsiella aerogenes
+0.0009659	121	58	362	7.45	2.706e-05	571	species	                Klebsiella oxytoca
+0.0004071	51	0	71	10.3	1.483e-05	244366	species	                Klebsiella variicola
+0.0003832	48	0	103	3.5	1.918e-05	1134687	species	                Klebsiella michiganensis
+0.0003193	40	0	35	2.03	1.331e-05	2488567	species	                  Klebsiella sp. FDAARGOS_511
+0.0034	426	48	1559	3.23	4.604e-05	1344959	species group	                Citrobacter freundii complex
+0.000902	113	54	155	6.72	4.283e-05	1639133	species	                  Citrobacter portucalensis
+0.0006625	83	0	108	17.9	0.0001042	133448	species	                  Citrobacter youngae
+0.0006386	80	8	309	2.04	6.742e-05	67827	species	                  Citrobacter werkmanii
+0.0003991	50	39	255	1.88	2.544e-05	546	species	                  Citrobacter freundii
+0.0002634	33	0	6	30.8	9.274e-06	2077147	species	                  Citrobacter freundii complex sp. CFNIH3
+0.0007823	98	0	173	4.64	5.955e-05	2653932	species	                  Citrobacter sp. NMI7904_11
+0.0009659	121	0	461	1.64	0.0001103	67825	species	                Citrobacter rodentium
+0.0003353	42	0	199	2.77	3.924e-05	35703	species	                Citrobacter amalonaticus
+0.0001596	20	0	208	1.13	6.56e-05	67824	species	                Citrobacter farmeri
+0.001006	126	89	64	7.42	2.144e-05	54291	species	                Raoultella ornithinolytica
+0.000447	56	0	33	4.15	1.133e-05	577	species	                Raoultella terrigena
+0.001078	135	131	241	3.05	4.687e-05	1334193	species	                [Enterobacter] lignolyticus
+0.0003592	45	4	97	3.13	1.58e-05	28141	species	                Cronobacter sakazakii
+0.0006146	77	0	241	1.41	6.044e-05	693444	species	                  Enterobacteriaceae bacterium strain FGI 57
+0.0006945	87	87	225	3.32	4.436e-05	61648	species	                Kluyvera intermedia
+0.0002315	29	3	386	1.28	4.219e-05	83655	species	                Leclercia adecarboxylata
+0.0002475	31	0	34	3.24	2.178e-05	69220	species	                Lelliottia nimipressuralis
+0.0001676	21	7	174	1.03	2.493e-05	61646	species	                Lelliottia amnigena
+0.0001916	24	2	184	1.05	1.327e-05	158822	species	                Cedecea neteri
+0.01839	2304	0	57	1.77e+03	5.501e-06	584	species	                Proteus mirabilis
+0.01741	2181	8	31	3.17e+03	1.371e-05	626774	species	                Proteus cibarius
+0.003233	405	402	791	31.9	3.27e-05	615	species	                Serratia marcescens
+0.0007264	91	0	76	31.1	2.024e-05	636	species	                Edwardsiella tarda
+7.567	947985	1098	989257	40.1	0.013	136841	species group	                Pseudomonas aeruginosa group
+7.555	946440	922780	976577	40.3	0.03057	287	species	                  Pseudomonas aeruginosa
+0.001533	192	161	632	4.86	7.948e-05	53408	species	                  Pseudomonas citronellolis
+0.0007823	98	50	458	2.55	2.475e-05	300	species	                  Pseudomonas mendocina
+0.0007583	95	0	482	2.75	5.871e-05	1232139	species subgroup	                  Pseudomonas oleovorans/pseudoalcaligenes group
+0.0005827	73	0	234	4.55	4.645e-05	1149133	species	                    Pseudomonas furukawaii
+0.0001756	22	13	248	1.05	7.822e-05	301	species	                    Pseudomonas oleovorans
+0.0002634	33	0	203	1.27	3.992e-05	53412	species	                  Pseudomonas resinovorans
+0.0002315	29	0	174	4.43	4.721e-05	43263	species	                  Pseudomonas alcaligenes
+0.001269	159	0	467	2.57	0.0001125	1294143	species	                  Pseudomonas sp. ATCC 13867
+0.0007503	94	0	352	2.61	7.204e-05	2653853	species	                  Pseudomonas sp. SCB32
+0.0007024	88	0	143	5.85	3.186e-05	1930532	species	                  Pseudomonas sp. CC6-YY-74
+0.0003033	38	0	237	1.08	4.914e-05	2604832	species	                  Pseudomonas sp. PE08
+0.0002794	35	0	252	1.98	6.004e-05	2320867	species	                  Pseudomonas sp. K2W31S-8
+0.0002794	35	0	190	1.02	3.813e-05	1856685	species	                  Pseudomonas sp. TCU-HL1
+0.0002395	30	0	162	4.22	0.0008177	1978467	species	                  Pseudomonas sp. AK6U
+0.003337	418	103	1967	1.95	1.82e-05	136845	species group	                Pseudomonas putida group
+0.001788	224	62	1031	1.57	1.444e-05	303	species	                  Pseudomonas putida
+0.0002395	30	2	416	1.61	5.086e-05	47885	species	                  Pseudomonas oryzihabitans
+0.0001916	24	0	151	1.38	2.863e-05	47880	species	                  Pseudomonas fulva
+0.0001676	21	0	86	1.12	9.489e-06	76759	species	                  Pseudomonas monteilii
+0.003041	381	8	1683	3.36	1.194e-05	136843	species group	                Pseudomonas fluorescens group
+0.001413	177	7	815	4.91	1.362e-05	294	species	                  Pseudomonas fluorescens
+0.0005747	72	2	83	7.39	7.413e-06	47878	species	                  Pseudomonas azotoformans
+0.0004231	53	41	276	1.43	2.181e-05	380021	species	                  Pseudomonas protegens
+0.002363	296	3	1330	2.28	2.768e-05	136846	species group	                Pseudomonas stutzeri group
+0.002235	280	0	1237	2.37	2.971e-05	578833	species subgroup	                  Pseudomonas stutzeri subgroup
+0.002235	280	112	1237	2.37	2.971e-05	316	species	                    Pseudomonas stutzeri
+0.001181	148	0	331	3.77	6.204e-05	136844	species group	                Pseudomonas pertucinogena group
+0.001181	148	0	331	3.77	6.204e-05	43306	species	                  Pseudomonas denitrificans (nomen rejiciendum)
+0.001149	144	0	436	5.34	9.09e-05	65741	species	                Pseudomonas knackmussii
+0.00111	139	2	732	1.28	1.221e-05	136842	species group	                Pseudomonas chlororaphis group
+0.0009419	118	37	627	1.33	1.3e-05	587753	species	                  Pseudomonas chlororaphis
+0.0003752	47	7	330	1.06	4.828e-06	136849	species group	                Pseudomonas syringae group
+0.0001596	20	0	101	1.1	3.982e-06	251695	species subgroup	                  Pseudomonas syringae group genomosp. 1
+0.0001596	20	9	101	1.1	3.982e-06	317	species	                    Pseudomonas syringae
+0.0002874	36	14	176	1.18	1.701e-05	312306	species	                Pseudomonas entomophila
+0.0002155	27	13	86	2.05	1.162e-05	237609	species	                Pseudomonas alkylphenolica
+0.0001836	23	5	151	2.26	1.856e-05	237610	species	                Pseudomonas psychrotolerans
+0.0007024	88	44	5128	1.1	0.001161	40215	species	                Acinetobacter junii
+0.005771	723	0	18826	1.19	0.00329	2126319	species	                  Variovorax sp. PMC12
+0.000926	116	9	2526	1.17	9.661e-05	34073	species	                Variovorax paradoxus
+0.0001596	20	0	593	1.08	0.0001223	436515	species	                Variovorax boronicumulans
+0.000431	54	0	14	12.1	1.245e-06	82633	species	                Cupriavidus pauculus
+0.0003273	41	1	88	3.55	5.764e-06	28095	species	                Burkholderia gladioli
+0.0001676	21	0	37	11	8.401e-06	94624	species	                Bordetella petrii
+0.0002395	30	7	585	1.1	7.254e-05	13690	species	                Sphingobium yanoikuyae
+0.0001756	22	0	31	24.7	6.351e-07	1183400	species group	                  Agrobacterium tumefaciens complex
+0.0001756	22	0	31	24.7	7.579e-07	358	species	                    Agrobacterium tumefaciens
+0.0001596	20	20	8	36	1.925e-06	266	species	                Paracoccus denitrificans
+0.3742	46878	2695	31323	14.5	0.0005137	653685	species group	                  Bacillus subtilis group
+0.2663	33358	19459	21633	16.1	0.001358	1423	species	                    Bacillus subtilis
+0.02724	3412	857	1945	9.18	0.001178	483913	subspecies	                      Bacillus subtilis subsp. inaquosorum
+0.02076	2601	98	1159	12.1	0.0008646	135461	subspecies	                      Bacillus subtilis subsp. subtilis
+0.01619	2028	0	1411	10.9	0.002744	96241	subspecies	                      Bacillus subtilis subsp. spizizenii
+0.04409	5523	3736	3582	9.04	0.001056	72361	species	                    Bacillus vallismortis
+0.02129	2667	0	1755	8.51	0.0004725	653388	species subgroup	                    Bacillus mojavensis subgroup
+0.02129	2667	2287	1755	8.51	0.0004725	260554	species	                      Bacillus halotolerans
+0.01164	1458	422	1155	7.98	6.814e-05	1938374	species subgroup	                    Bacillus amyloliquefaciens group
+0.00455	570	225	504	4.8	8.439e-05	1390	species	                      Bacillus amyloliquefaciens
+0.00372	466	20	486	6.2	6.899e-05	492670	species	                      Bacillus velezensis
+0.007543	945	675	577	8.19	9.037e-05	1452	species	                    Bacillus atrophaeus
+0.0009659	121	0	21	14.9	5.236e-06	119858	species	                    Bacillus sonorensis
+0.0005508	69	68	63	2.25	1.291e-05	1648923	species	                    Bacillus paralicheniformis
+0.0003353	42	0	39	1.92	1.72e-05	1402	species	                    Bacillus licheniformis
+0.01324	1659	19	1516	59.5	1.607e-05	86661	species group	                  Bacillus cereus group
+0.01215	1522	0	496	179	5.39e-05	1405	species	                    Bacillus mycoides
+0.000455	57	7	490	1.29	2.381e-05	1428	species	                    Bacillus thuringiensis
+0.0002554	32	0	199	2.16	1.08e-05	1396	species	                    Bacillus cereus
+0.0002075	26	4	203	1.15	0.000145	1392	species	                    Bacillus anthracis
+0.01067	1337	0	344	33.1	0.09609	1963032	species	                  Bacillus intestinalis
+0.002826	354	0	362	8.06	0.000797	1127744	species	                    Bacillus sp. JS
+0.00261	327	0	350	6.53	0.0007945	2009331	species	                    Bacillus sp. MD-5
+0.0003672	46	0	9	10.6	2.372e-06	2587848	species	                    Bacillus sp. THAF10
+0.0002235	28	0	28	6.04	0.001213	2448811	species	                    Bacillus sp. WR11
+0.0007344	92	40	53	6.34	7.543e-06	1398	species	                  Bacillus coagulans
+0.0004869	61	51	70	9.76	1.066e-05	1664069	species	                  Bacillus glycinifermentans
+0.0004151	52	0	10	40.4	1.834e-06	1193713	species	                  Bacillus mesonae
+0.0004151	52	2	41	6.54	4.14e-06	1404	species	                  Bacillus megaterium
+0.0003512	44	40	67	2.31	1.096e-05	561879	species	                  Bacillus safensis
+0.0003273	41	0	17	7.71	2.215e-06	79880	species	                  Bacillus clausii
+0.0003033	38	0	5	8.4	1.15e-06	218284	species	                  Bacillus vietnamensis
+0.0002714	34	0	19	4.32	3.943e-06	152268	species	                  Bacillus litoralis
+9.768	1223720	1150415	2060295	52.8	0.1636	1280	species	                  Staphylococcus aureus
+0.09807	12286	715	3937	60.8	0.005495	46170	subspecies	                    Staphylococcus aureus subsp. aureus
+0.02304	2886	37	2573	5.33	0.0005455	29382	species	                  Staphylococcus cohnii
+0.01826	2287	2	118	423	7.943e-05	283734	species	                  Staphylococcus pseudintermedius
+0.01596	2000	0	61	172	3.07e-05	246432	species	                  Staphylococcus equorum
+0.01079	1352	0	93	142	2.07e-05	1288	species	                  Staphylococcus xylosus
+0.009842	1233	226	2131	17.7	0.0005756	1290	species	                  Staphylococcus hominis
+0.001692	212	0	1278	9.48	0.0007972	1654388	species	                  Staphylococcus schweitzeri
+0.0009738	122	0	285	15	0.0001211	308354	species	                  Staphylococcus simiae
+0.000463	58	56	212	4.54	8.823e-05	29380	species	                  Staphylococcus caprae
+0.000439	55	0	48	9.6	2.311e-05	29379	species	                  Staphylococcus auricularis
+0.0003113	39	1	50	120	1.047e-05	1296	species	                  Staphylococcus sciuri
+0.0002315	29	0	7	99.9	1.243e-05	147467	subspecies	                    Staphylococcus sciuri subsp. sciuri
+0.0003033	38	29	279	9	0.000402	985002	species	                  Staphylococcus argenteus
+0.0002554	32	32	82	67.5	2.207e-05	1286	species	                  Staphylococcus simulans
+0.0002155	27	0	37	21.8	1.133e-05	46126	species	                  Staphylococcus chromogenes
+0.0001756	22	14	192	3.65	5.647e-05	29385	species	                  Staphylococcus saprophyticus
+8.52	1067308	1042894	2360233	42.6	0.1995	1639	species	                  Listeria monocytogenes
+0.004829	605	340	1982	13.2	0.0007641	1642	species	                  Listeria innocua
+0.002091	262	182	706	16.8	0.0001478	1638	species	                  Listeria ivanovii
+0.0005268	66	65	228	12.1	9.858e-05	202752	subspecies	                    Listeria ivanovii subsp. londoniensis
+0.001006	126	0	284	16.4	0.0001312	1640	species	                  Listeria seeligeri
+0.0009659	121	121	857	11.8	0.0003784	1643	species	                  Listeria welshimeri
+0.0002953	37	0	34	23.4	1.055e-05	1006155	species	                  Listeria weihenstephanensis
+7.779	974527	920154	2560604	40.9	0.2836	1351	species	                  Enterococcus faecalis
+0.04608	5773	2	289	177	3.29e-05	1352	species	                  Enterococcus faecium
+0.0003273	41	0	16	22	0.0001191	2603296	species	                    Enterococcus sp. DA9
+0.0001836	23	1	23	13.1	4.332e-06	33945	species	                  Enterococcus avium
+6.554	821098	766998	1652121	53	0.2899	1613	species	                  Lactobacillus fermentum
+0.00807	1011	341	1677	44.3	0.0003044	33959	species	                  Lactobacillus johnsonii
+0.003273	410	78	440	35.2	5.673e-05	1580	species	                  Lactobacillus brevis
+0.003009	377	0	164	45.5	7.74e-05	1600	species	                  Lactobacillus acetotolerans
+0.002147	269	7	221	11.5	1.885e-05	1590	species	                  Lactobacillus plantarum
+0.001397	175	8	177	26.9	2.741e-05	1584	species	                  Lactobacillus delbrueckii
+0.0004789	60	0	37	33.7	2.999e-05	1585	subspecies	                    Lactobacillus delbrueckii subsp. bulgaricus
+0.000439	55	0	34	44	6.811e-05	249265	subspecies	                    Lactobacillus delbrueckii subsp. indicus
+0.0003193	40	0	19	18.6	2.72e-05	29397	subspecies	                    Lactobacillus delbrueckii subsp. lactis
+0.001054	132	73	80	11.6	1.524e-05	1624	species	                  Lactobacillus salivarius
+0.001022	128	0	73	11	4.959e-06	655183	species group	                  Lactobacillus casei group
+0.0007583	95	70	52	12.6	1.085e-05	1597	species	                    Lactobacillus paracasei
+0.0002634	33	0	15	9.53	2.371e-06	1582	species	                    Lactobacillus casei
+0.000926	116	2	145	14.5	1.722e-05	1598	species	                  Lactobacillus reuteri
+0.0005428	68	0	103	6.2	6.405e-05	35787	species	                  Lactobacillus pontis
+0.0003512	44	0	13	44.5	6.799e-06	1596	species	                  Lactobacillus gasseri
+0.0002714	34	0	32	3.94	1.692e-05	1296540	species	                  Lactobacillus nenjiangensis
+0.0002235	28	28	9	41.9	4.964e-06	267818	species	                  Lactobacillus kefiranofaciens
+0.0001916	24	0	31	15.6	5.782e-05	52242	species	                  Lactobacillus gallinarum
+0.0002315	29	0	59	9.68	1.247e-05	1670797	species group	                  Pediococcus acidilactici group
+0.0002315	29	29	59	9.68	1.247e-05	1254	species	                    Pediococcus acidilactici
+0.001573	197	0	251	51.2	4.176e-05	137591	species	                  Weissella cibaria
+0.0001756	22	0	6	9.67	2.12e-06	2506420	species	                    Weissella sp. 26KH-42
+0.0003193	40	0	14	4.29	1.138e-06	1358	species	                  Lactococcus lactis
+0.0003193	40	0	3	16.3	6.863e-07	1360	subspecies	                    Lactococcus lactis subsp. lactis
+0.006091	763	0	166	117	5.861e-06	1491	species	                  Clostridium botulinum
+0.0007104	89	89	8516	1.07	0.00198	1747	species	                  Cutibacterium acnes
+1.247	156242	0	6807688	2.09	0.6333	4932	species	                          Saccharomyces cerevisiae
+0.0001996	25	0	186	4.5	1.838e-05	28985	species	                          Kluyveromyces lactis
+0.0004949	62	0	88	7.49	1.031e-05	33169	species	                          Eremothecium gossypii
+0.0005428	68	0	103	14.3	8.596e-06	42374	species	                            Candida dubliniensis
+0.0003273	41	0	41	15.9	4.156e-06	4909	species	                          Pichia kudriavzevii
+0.001884	236	0	73	42.3	1.868e-06	40559	species	                              Botrytis cinerea
+0.005843	732	0	1034	14.7	0.0001437	76775	species	                        Malassezia restricta
+0.01079	1352	0	3761	4.05	1.501e-06	9606	species	                                                              Homo sapiens
+0.003887	487	0	246	45.1	0.05396	1458852	species	          Listeria phage LP-030-3
+0.0004869	61	0	21	50.8	0.002553	1868596	species	          Pseudomonas phage MD8
+0.0003672	46	0	43	41.5	0.03125	1147140	species	          Salmonella phage SPN3UB
+0.0003113	39	0	15	37.9	0.003463	1591072	species	          Listeria phage vB_LmoS_188
+0.0002634	33	0	53	49.2	0.004828	40522	species	          Listeria phage A500
+0.0002554	32	0	47	17.1	0.009096	1591073	species	          Listeria phage vB_LmoS_293
+0.0002235	28	0	38	35.3	0.01872	663241	species	          Enterococcus phage phiEf11
+0.001644	206	0	181	34.9	0.03776	1633149	species	          Enterococcus virus FL1
+0.001054	132	0	62	53.3	0.3212	430796	species	            Staphylococcus phage phi2958PVL
+0.0001836	23	0	30	59.2	0.1132	445517	species	            Staphylococcus phage tp310-3
+0.0002235	28	0	37	45.2	0.03592	1921435	species	          Listeria virus LP302
+0.0002155	27	0	44	45.5	0.01301	330397	species	          Listeria phage B054
+0.0003832	48	0	62	39.2	0.01255	2560731	species	          Salmonella virus SEN34
+0.0002634	33	0	56	14.2	0.1605	379329	species	              Stx2-converting phage 86
+0.0002475	31	0	12	39.8	0.2791	1127357	species	            Salmonella phage SPN9CC
+0.0002075	26	0	1	57	0.0003971	1124654	species	            Escherichia phage TL-2011b

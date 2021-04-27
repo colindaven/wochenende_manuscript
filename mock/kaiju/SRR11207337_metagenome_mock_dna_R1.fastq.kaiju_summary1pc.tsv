@@ -1,0 +1,13 @@
+file	percent	reads	taxon_id	taxon_name
+SRR11207337_metagenome_mock_dna_R1.fastq.kaiju.ktxt	8.517599	1067054	590	Salmonella
+SRR11207337_metagenome_mock_dna_R1.fastq.kaiju.ktxt	7.676682	961707	1637	Listeria
+SRR11207337_metagenome_mock_dna_R1.fastq.kaiju.ktxt	7.133044	893602	1386	Bacillus
+SRR11207337_metagenome_mock_dna_R1.fastq.kaiju.ktxt	6.048427	757725	1578	Lactobacillus
+SRR11207337_metagenome_mock_dna_R1.fastq.kaiju.ktxt	5.207303	652352	286	Pseudomonas
+SRR11207337_metagenome_mock_dna_R1.fastq.kaiju.ktxt	2.782336	348561	561	Escherichia
+SRR11207337_metagenome_mock_dna_R1.fastq.kaiju.ktxt	2.750399	344560	1279	Staphylococcus
+SRR11207337_metagenome_mock_dna_R1.fastq.kaiju.ktxt	1.073004	134422	1350	Enterococcus
+SRR11207337_metagenome_mock_dna_R1.fastq.kaiju.ktxt	0.011119	1393	10239	Viruses
+SRR11207337_metagenome_mock_dna_R1.fastq.kaiju.ktxt	51.694782	6476135	NA	cannot be assigned to a (non-viral) genus
+SRR11207337_metagenome_mock_dna_R1.fastq.kaiju.ktxt	3.586750	449335	NA	belong to a (non-viral) genus with less than 1% of all reads
+SRR11207337_metagenome_mock_dna_R1.fastq.kaiju.ktxt	3.518556	440792	NA	unclassified
