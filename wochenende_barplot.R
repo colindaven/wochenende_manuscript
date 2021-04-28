@@ -1,52 +1,39 @@
 # barplots for Wochenende paper
 
-setwd('/ngsssd1/rcug/wochenende_manuscript')
+# set this to your directory
+setwd('/working2/rcug_lw/sophias_projekte/wochenende_manuscript/mock')
+# path for the output csv 
+output <- "/working2/rcug_lw/sophias_projekte/wochenende_manuscript/all_tools.csv"
 
 library("dplyr")
 library("ggplot2")
 library("tidyr")
 library("stringr")
-
-# control dataframe
-
-control_df <- data.frame (chr_name  = c("Pseudomonas aeruginosa","Salmonella enterica","Escherichia coli",
-                                      "Lactobacillus fermentum","Enterococcus faecalis","Staphylococcus aureus",
-                                      "Listeria monocytogenes","Bacillus subtilis", "Cryptococcus neoformans",
-                                      "Saccharomyces cerevisiae"),
-                      control = c(12,12,12,12,12,12,12,12,2,2)
-)
-
+library("viridis")
+library("ggsci")
+library(grid)
 
 
 ### Centrifuge ###
 
 # import data
-centrifuge_blank <- read.csv(file = '2020_036107_mock/centrifuge/mock_blank_S59_R1.fastq.report.s.csv', sep = "\t")
-centrifuge_mockI <- read.csv(file = '2020_036107_mock/centrifuge/mock_I_S57_R1.fastq.report.s.csv', sep = "\t")
-centrifuge_mockII <- read.csv(file = '2020_036107_mock/centrifuge/mock_II_S58_R1.fastq.report.s.csv', sep = "\t")
-
-# merge all samples together
-centrifuge_all <-  merge(centrifuge_blank, merge(centrifuge_mockI, centrifuge_mockII, by = c("name", "taxRank") , all = TRUE), by = c("name", "taxRank"), all = TRUE)
+centrifuge_mock <- read.csv(file = 'centrifuge/SRR11207337_metagenome_mock_dna_R1.fastq.report.s.csv', sep = "\t")
 
 # select the right column, filter for species, rename column, replaces Na with 0 
-centrifuge_all <- centrifuge_all %>% select(name, taxRank, numUniqueReads, numUniqueReads.x, numUniqueReads.y)
-centrifuge_all <- filter(centrifuge_all, taxRank == "species")
-colnames(centrifuge_all) <- c("chr_name", "taxRank", "numUniqueReads_blank", "numUniqueReads_I", "numUniqueReads_II")
-centrifuge_all[is.na(centrifuge_all)] <- 0
+centrifuge_mock <- centrifuge_mock %>% select(name, taxRank, numUniqueReads)
+centrifuge_mock <- filter(centrifuge_mock, taxRank == "species")
+colnames(centrifuge_mock) <- c("chr_name", "taxRank", "numUniqueReads")
+centrifuge_mock[is.na(centrifuge_mock)] <- 0
 
-# get the sums for each samples for the unique Readcount
-sum_centrifuge_blank <- sum(as.numeric(centrifuge_all$numUniqueReads_blank))
-sum_centrifuge_I <- sum(as.numeric(centrifuge_all$numUniqueReads_I))
-sum_centrifuge_II <- sum(as.numeric(centrifuge_all$numUniqueReads_II))
+# get the sum for the unique Readcount
+sum_centrifuge <- sum(as.numeric(centrifuge_mock$numUniqueReads))
 
-# make the percentage
-normalised_centrifuge <- centrifuge_all %>% 
-  mutate(centrifuge_blank = as.numeric(numUniqueReads_blank) / sum_centrifuge_blank * 100) %>% 
-  mutate(centrifuge_I = as.numeric(numUniqueReads_I) / sum_centrifuge_I  * 100) %>%
-  mutate(centrifuge_II = as.numeric(numUniqueReads_II) / sum_centrifuge_II * 100)
+# make the numReads percentage
+normalised_centrifuge <- centrifuge_mock %>% 
+  mutate(centrifuge = as.numeric(numUniqueReads) / sum_centrifuge  * 100)
 
 # select the needed columns 
-centrifuge_filt <- normalised_centrifuge %>% select(chr_name, centrifuge_blank, centrifuge_I, centrifuge_II)
+centrifuge_filt <- normalised_centrifuge %>% select(chr_name, centrifuge)
 
 # wanted chr names
 chr_names <- c("Pseudomonas aeruginosa","Salmonella enterica","Escherichia coli",
@@ -56,64 +43,24 @@ chr_names <- c("Pseudomonas aeruginosa","Salmonella enterica","Escherichia coli"
 
 # filter for the wanted chromosomes and merge with control
 centrifuge_filt <- filter(centrifuge_filt, chr_name %in% chr_names)
-centrifuge_filt <- merge(centrifuge_filt, control_df, by = "chr_name", all = TRUE)
 
-# convert to long format
-centrifuge_long <- gather(centrifuge_filt, sample, percentage, 2:5, factor_key=TRUE)
-
-# plot everything
-# aes(x=chr_name, y=percentage, fill=sample)) +  # for "chromosomes"
-ggplot(centrifuge_long, aes(x=sample, y=percentage, fill=chr_name)) + 
-  geom_bar(stat="identity", position=position_dodge()) +
-  ggtitle("Centrifuge")
-
-
-
-### Kaiju ###
-
-# import data
-kaiju_blank <- read.csv(file = '2020_036107_mock/kaiju/mock_blank_S59_R1.fastq.kaiju_summary1.tsv', sep = "\t")
-kaiju_mockI <- read.csv(file = '2020_036107_mock/kaiju/mock_I_S57_R1.fastq.kaiju_summary1.tsv', sep = "\t")
-kaiju_mockII <- read.csv(file = '2020_036107_mock/kaiju/mock_II_S58_R1.fastq.kaiju_summary1.tsv', sep = "\t")
-
-# merge all samples, selcet the wanted columns and change the names
-kaiju_all <-  merge(kaiju_blank, merge(kaiju_mockI, kaiju_mockII, by = "taxon_name" , all = TRUE), by = "taxon_name", all = TRUE)
-kaiju_all <- kaiju_all %>% select(taxon_name, percent, percent.x, percent.y)
-colnames(kaiju_all) <- c("chr_name", "kaiju_blank", "kaiju_I", "kaiju_II")
-
-# chromosomes wanted
-chr_names <- c("Pseudomonas","Salmonella","Escherichia",
-               "Lactobacillus","Enterococcus","Staphylococcus",
-               "Listeria","Bacillus", "Cryptococcus",
-               "Saccharomyces")
-
-# filter for wanted chromosomes
-kaiju_filt <- filter(kaiju_all, chr_name %in% chr_names)
-
-# convert to long format
-kaiju_long <- gather(kaiju_filt, sample, percentage, 2:4, factor_key=TRUE)
-# plot everything
-# aes(x=chr_name, y=percentage, fill=sample)) +  # for "chromosomes"
-ggplot(kaiju_long, aes(x=sample, y=percentage, fill=chr_name)) + 
-  geom_bar(stat="identity", position=position_dodge()) +
-  ggtitle("Kaiju")
+# shorten chr_names
+centrifuge_filt <- centrifuge_filt %>% 
+  mutate(chr_name = str_replace(chr_name, "[a-z]* ", ". "))
 
 
 
 ### Kraken ###
 
 # import data
-kraken_blank <- read.csv(file = '2020_036107_mock/krakenuniq/mock_blank_S59_R1.fastq.report.txt.species.filt.txt', sep = "\t", header=FALSE)
-kraken_mockI <- read.csv(file = '2020_036107_mock/krakenuniq/mock_I_S57_R1.fastq.report.txt.species.filt.txt', sep = "\t", header=FALSE)
-kraken_mockII <- read.csv(file = '2020_036107_mock/krakenuniq/mock_II_S58_R1.fastq.report.txt.species.filt.txt', sep = "\t", header=FALSE)
+kraken_mock <- read.csv(file = 'krakenuniq/SRR11207337_metagenome_mock_dna_R1.fastq.report.txt.species.filt.txt', sep = "\t", header=FALSE)
 
-# merge all samples, select wanted columns and rename them 
-kraken_all <-  merge(kraken_blank, merge(kraken_mockI, kraken_mockII, by = "V9" , all = TRUE), by = "V9", all = TRUE)
-kraken_all <- kraken_all %>% select(V9, V1, V1.x, V1.y)
-colnames(kraken_all) <- c("chr_name", "kraken_blank", "kraken_I", "kraken_II")
+# select wanted columns and rename them 
+kraken_mock <- kraken_mock %>% select(V9, V1)
+colnames(kraken_mock) <- c("chr_name", "kraken")
 
 # delete all leading whitespaces in the chr_name column
-kraken_all <- kraken_all %>% 
+kraken_mock <- kraken_mock %>% 
   mutate(chr_name = str_trim(chr_name, side = "left"))
 
 # chromosomes wanted
@@ -123,29 +70,24 @@ chr_names <- c("Pseudomonas aeruginosa","Salmonella enterica","Escherichia coli"
                  "Saccharomyces cerevisiae")
 
 # filter for wanted chromosomes and add control
-kraken_filt <- filter(kraken_all, chr_name %in% chr_names)
-kraken_filt <- merge(kraken_filt, control_df, by = "chr_name", all = TRUE)
+kraken_filt <- filter(kraken_mock, chr_name %in% chr_names)
 
-# convert to long format
-kraken_long <- gather(kraken_filt, sample, percentage, 2:5, factor_key=TRUE)
-# plot everything
-# aes(x=chr_name, y=percentage, fill=sample)) +  # for "chromosomes"
-ggplot(kraken_long, aes(x=sample, y=percentage, fill=chr_name)) + 
-  geom_bar(stat="identity", position=position_dodge()) +
-  ggtitle("Krakenuniq")
+# shorten chr_names
+kraken_filt <- kraken_filt %>% 
+  mutate(chr_name = str_replace(chr_name, "[a-z]* ", ". "))
 
 
 
 ### Metaphlan ###
 
-# chr_names were shortened per hand in bash
+# chr_names where shortened per hand in bash
 # import data, select wanted columns and rename them 
-metaphlan <- read.csv(file = '2020_036107_mock/metaphlan/mock_merged_abundance_table_sp_header.txt', sep = "\t")
-metaphlan <- select(metaphlan, -NCBI_tax_id)
-colnames(metaphlan) <- c("chr_name", "metaphlan_I", "metaphlan_II", "metaphlan_blank")
+metaphlan <- read.csv(file = 'metaphlan/SRR11207337_metagenome_mock_dna_R1.profiled_metagenome_species.txt', sep = "\t")
+metaphlan <- select(metaphlan, -NCBI_tax_id, -additional_species)
+colnames(metaphlan) <- c("chr_name", "metaphlan")
 
 # wanted chromosomes
-chr_names <- c("Pseudomonas_aeruginosa","Salmonella_enterica","Escherichia_coli",
+chr_names <- c("Pseudomonas_aeruginosa_group","Salmonella_enterica","Escherichia_coli",
                  "Lactobacillus_fermentum","Enterococcus_faecalis","Staphylococcus_aureus",
                  "Listeria_monocytogenes","Bacillus_subtilis", "Cryptococcus_neoformans",
                  "Saccharomyces_cerevisiae")
@@ -153,18 +95,15 @@ chr_names <- c("Pseudomonas_aeruginosa","Salmonella_enterica","Escherichia_coli"
 # filter for wanted chromosomes, replace all "_" with whitespace, add control, reorder dataframe
 metaphlan_filt <- filter(metaphlan, chr_name %in% chr_names)
 metaphlan_filt <- metaphlan_filt %>% 
-  mutate(chr_name = str_replace(chr_name, "_", " "))
-metaphlan_filt <- merge(metaphlan_filt, control_df, by = "chr_name", all = TRUE)
-col_order <- c("chr_name", "metaphlan_blank", "metaphlan_I", "metaphlan_II", "control")
+  mutate(chr_name = str_replace(chr_name, "_", " ")) %>% 
+  mutate(chr_name = str_replace(chr_name, "_group", ""))
+# metaphlan_filt <- merge(metaphlan_filt, control_df, by = "chr_name", all = TRUE)
+col_order <- c("chr_name", "metaphlan")  # , "control"
 metaphlan_filt <- metaphlan_filt[, col_order]
 
-# convert to long format
-metaphlan_long <- gather(metaphlan_filt, sample, percentage, 2:5, factor_key=TRUE)
-# plot everything
-# aes(x=chr_name, y=percentage, fill=sample)) +  # for "chromosomes"
-ggplot(metaphlan_long, aes(x=sample, y=percentage, fill=chr_name)) + 
-  geom_bar(stat="identity", position=position_dodge()) +
-  ggtitle("Metaphlan")
+# shorten chr_names
+metaphlan_filt <- metaphlan_filt %>% 
+  mutate(chr_name = str_replace(chr_name, "[a-z]* ", ". "))
 
 
 
@@ -172,18 +111,13 @@ ggplot(metaphlan_long, aes(x=sample, y=percentage, fill=chr_name)) +
 
 # import data
 
-haybaler_csv_1 <- read.csv(file = '2020_036107_mock/2021_02_ref/reporting/haybaler_output/RPMM_haybaler.csv', sep = "\t")
-haybaler_csv_2 <- read.csv(file = 'metagen_mock_loman/reporting/haybaler_output/RPMM_haybaler.csv', sep = "\t")
+wochenende_mock <- read.csv(file = 'wochenende/reporting/haybaler/haybaler_output/RPMM_haybaler.csv', sep = "\t")
 
-# get RPMM sums for each sample
+# get RMPP sums for the sample
 
-sum_blank <- sum(haybaler_csv_1$mock_blank_S59_R1)
-sum_I <- sum(haybaler_csv_1$mock_I_S57_R1)
-sum_II <- sum(haybaler_csv_1$mock_II_S58_R1)
-sum_loman <- sum(haybaler_csv_2$Zymo.GridION.EVEN.BB.SN_R1)
+sum_wochenende <- sum(wochenende_mock$SRR11207337_metagenome_mock_dna_R1)
 
 #organisms for the barplot
-
 orga <- c("1_AE004091_2_Pseudomonas_aeruginosa_PAO1__complete_genome_BAC",
           "1_AE006468_2_Salmonella_enterica_subsp__enterica_serovar_Typhimurium_str__LT2__complete_genome_BAC",
           "1_U00096_3_Escherichia_coli_str__K_12_substr__MG1655__complete_genome_BAC",
@@ -196,114 +130,107 @@ orga <- c("1_AE004091_2_Pseudomonas_aeruginosa_PAO1__complete_genome_BAC",
           "Saccharomyces_cerevisiae"
           )
 
-# shorten chromosome names
+# shortened chromosome names
 
 shorten_chr <- c("Pseudomonas_aeruginosa","Salmonella_enterica","Escherichia_coli",
                  "Lactobacillus_fermentum","Enterococcus_faecalis","Staphylococcus_aureus",
                  "Listeria_monocytogenes","Bacillus_subtilis", "Cryptococcus_neoformans",
                  "Saccharomyces_cerevisiae")
 
-# merge both csv 
-
-csv_all <-  merge(haybaler_csv_1, haybaler_csv_2, by = "species", all = TRUE)
-
 # df with only Saccharomyces_cerevisiae and only Cryptococcus_neoformans
 
-csv_cryptococcus <- csv_all %>% 
+df_cryptococcus <- wochenende_mock %>% 
   filter(str_detect(species, "Cryptococcus_neoformans"))
 
-csv_saccharomyces <- csv_all %>% 
+df_saccharomyces <- wochenende_mock %>% 
   filter(str_detect(species, "Saccharomyces_cerevisiae"))
 
-# sum of all Saccharomyces_cerevisiae and Cryptococcus_neoformans strains for each sample
+# median of all Saccharomyces_cerevisiae and Cryptococcus_neoformans strains for each sample
 
-sum_cryptococcus_I <- sum(csv_cryptococcus$mock_I_S57_R1)
-sum_cryptococcus_II <- sum(csv_cryptococcus$mock_II_S58_R1)
-sum_cryptococcus_blank <- sum(csv_cryptococcus$mock_blank_S59_R1)
-sum_cryptococcus_loman <-  0  # sum(csv_cryptococcus$Zymo.GridION.EVEN.BB.SN_R1) would be NA
-
-sum_saccharomycess_I <- sum(csv_saccharomyces$mock_I_S57_R1)
-sum_saccharomycess_II <- sum(csv_saccharomyces$mock_II_S58_R1)
-sum_saccharomycess_blank <- sum(csv_saccharomyces$mock_blank_S59_R1)
-sum_saccharomycess_loman <- 0  # sum(csv_saccharomyces$Zymo.GridION.EVEN.BB.SN_R1) would be NA
-
+median_cryptococcus <- median(df_cryptococcus$SRR11207337_metagenome_mock_dna_R1)
+median_saccharomycess <- median(df_saccharomyces$SRR11207337_metagenome_mock_dna_R1)
 
 # make a row for Cryptococcus and Saccharomyces to add later to the final df 
 
-cryptococcus <- c("Cryptococcus_neoformans", sum_cryptococcus_blank, sum_cryptococcus_II, sum_cryptococcus_I, sum_cryptococcus_loman)
-saccharomycess <- c("Saccharomyces_cerevisiae", sum_saccharomycess_blank, sum_saccharomycess_II, sum_saccharomycess_I, sum_saccharomycess_loman)
+cryptococcus <- c("Cryptococcus_neoformans", median_cryptococcus)
+saccharomycess <- c("Saccharomyces_cerevisiae", median_saccharomycess)
 
 # get the right rows (just the organisms in the mock community)
 
-filt_csv <- filter(csv_all, species %in% orga)
+wochenende_filt <- filter(wochenende_mock, species %in% orga)
 
 # deselect unwanted columns
 
-filt_csv_less <- select(filt_csv, -chr_length.x, -gc_ref.x, -chr_length.y, -gc_ref.y)
+wochenende_filt <- select(wochenende_filt, -chr_length, -gc_ref)
 
 # add both yeasts columns
 
-filt_csv_less <- rbind(filt_csv_less, cryptococcus, saccharomycess)
+wochenende_filt <- rbind(wochenende_filt, cryptococcus, saccharomycess)
 
-# normalize the data and add control
+# normalize the data, make it percentage
 
-normalised_csv <- filt_csv_less %>% 
-  # mutate(norm_blank = mock_blank_S59_R1 / sum_blank * 100) %>% error division by zero
-  mutate(Wochenende_blank = as.numeric(mock_blank_S59_R1) * 0) %>% 
-  mutate(Wochenende_I = as.numeric(mock_I_S57_R1) / sum_I  * 100) %>%
-  mutate(Wochenende_II = as.numeric(mock_II_S58_R1) / sum_II * 100) %>% 
-  mutate(Wochenende_Nanopore_Loman = as.numeric(Zymo.GridION.EVEN.BB.SN_R1) / sum_loman * 100)
-normalised_csv["control"] <- c(12,12,12,12,12,12,12,12,2,2)
+wochenende_filt <- wochenende_filt %>% 
+  mutate(Wochenende = as.numeric(SRR11207337_metagenome_mock_dna_R1) / sum_wochenende  * 100)
 
-# 
-normalised_csv_ordered <- setNames(data.frame(matrix(ncol = 11, nrow = 0)), colnames(normalised_csv))
+wochenende_filt <- wochenende_filt
 for (organism in orga){
-  normalised_csv_ordered <- rbind(normalised_csv_ordered, filter(normalised_csv, str_detect(species, organism)))
+  wochenende_filt <- rbind(wochenende_filt, filter(wochenende_filt, str_detect(species, organism))) 
 }
 
 # add shortened names
 
-normalised_csv_ordered["chr_name"] <- shorten_chr
+wochenende_filt["chr_name"] <- shorten_chr
 
 # just the data we need
 
-normalised_csv_less <- normalised_csv_ordered[ ,-1:-5]
+wochenende_filt <- wochenende_filt[ ,-1:-2]
+wochenende_filt <- wochenende_filt %>% slice(1:10)
 
 # replace every "_" with whitespace
 
-normalised_csv_less <- normalised_csv_less %>% 
-  mutate(chr_name = str_replace(chr_name, "_", " "))
+wochenende_filt <- wochenende_filt %>% 
+  mutate(chr_name = str_replace(chr_name, "_", " ")) %>% 
+  mutate(chr_name = str_replace(chr_name, "[a-z]* ", ". "))
 
-# chr_name as factor (makes sure that the groupes in the barchart are ordere correct)
+# chr_name as factor (makes sure that the groups in the barchart are ordered correct)
+wochenende_filt$chr_name <- factor(wochenende_filt$chr_name, levels = wochenende_filt$chr_name)
 
-normalised_csv_less$chr_name <- factor(normalised_csv_less$chr_name, levels = normalised_csv_less$chr_name)
-
-# convert to long format
-
-data_long <- gather(normalised_csv_less, sample, percentage, 1:5, factor_key=TRUE)
-
-# plot everything
-# aes(x=chr_name, y=percentage, fill=sample)) +  # for "chromosomes"
-ggplot(data_long, aes(x=sample, y=percentage, fill=chr_name)) + 
-  geom_bar(stat="identity", position=position_dodge()) +
-  ggtitle("Wochenende")
 
 
 ### all Tools in one plot ###
-# all = wochenende, centrifuge, metaphlan, krakenuniq (no kaiju)
+# all = wochenende, centrifuge, metaphlan, krakenuniq
 
 # merge all to one df 
-all <- merge(normalised_csv_less, centrifuge_filt, by = c("chr_name", "control"))
-all <- merge(all, metaphlan_filt, by = c("chr_name", "control"))
-all <- merge(all, kraken_filt, by = c("chr_name", "control"))
+all <- merge(wochenende_filt, centrifuge_filt, by = c("chr_name"), all=TRUE)
+all <- merge(all, metaphlan_filt, by = c("chr_name"), all=TRUE)
+all <- merge(all, kraken_filt, by = c("chr_name"), all=TRUE)
+all_needed <- select(all,chr_name, Wochenende, centrifuge, metaphlan, kraken)
+all_needed[is.na(all_needed)] <- 0
+colnames(all_needed) <- c("chr_name", "Wochenende", "Centrifuge", "Metaphlan", "KrakenUniq")
+write.csv(all_needed, output, row.names = FALSE)
 
 # convert to long format
 
-all_long <- gather(all, sample, percentage, 2:15, factor_key=TRUE)
+all_long <- gather(select(all_needed,chr_name, Wochenende, Centrifuge, Metaphlan, KrakenUniq), sample, percentage, 2:5, factor_key=TRUE)
+
+grouped_pallete <- c("#3399FF", "#0066CC", "#3399CC", "#99FF00", "#33FF00", "#FF66CC", "#FF33CC", "#FF6600", "#FF3300")
+grouped_pallete_2 <- c("#009966", "#339966", "#66CC99", "#CCFF33", "#CCFF99", "#FF9900", "#FFCC33", "#CC3333", "#FF3333")
 
 # plot everything
-# aes(x=chr_name, y=percentage, fill=sample)) +  # for "chromosomes"
-ggplot(all_long, aes(x=sample, y=percentage, fill=chr_name)) + 
+  ggplot(all_long, aes(x=chr_name, y=percentage, fill=sample)) + 
   geom_bar(stat="identity", position=position_dodge()) +
-  ggtitle("All Tools")
-             
+  ggtitle("All Tools") + 
+  geom_segment(aes(x = 0, y = 12, xend = 7.5, yend = 12), color="red")  +
+  geom_segment(aes(x = 0, y = 13.8, xend = 7.5, yend = 13.8), linetype="dashed")  + 
+  geom_segment(aes(x = 0, y = 10.2, xend = 7.5, yend = 10.2), linetype="dashed")  + 
+  geom_segment(aes(x = 7.5, y = 2, xend = 11, yend = 2), color="red")  + 
+  geom_segment(aes(x = 7.5, y = 2.3, xend = 11, yend = 2.3), linetype="dashed")  +  
+  geom_segment(aes(x = 7.5, y = 1.7, xend = 11, yend = 1.7), linetype="dashed")  +  
+  theme_light() +
+  # scale_fill_manual(values=grouped_pallete)
+  # scale_fill_manual(values=grouped_pallete_2)
+  # scale_fill_brewer(palette="Set1")
+  scale_fill_brewer(palette="Set3")
+  # scale_fill_brewer(palette="Spectral")
+  # scale_fill_viridis(discrete = TRUE, option = "D")
+  # scale_fill_viridis(discrete = TRUE, option = "C")
