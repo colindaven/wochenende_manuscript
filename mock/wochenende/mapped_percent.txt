@@ -1,2 +1,0 @@
-Wochenende mapping stats
-SRR11207337_metagenome_mock_dna_R1.ndp.trm.s.bam.flagstat.txt \t9827750 + 0 mapped (95.24% : N/A)
