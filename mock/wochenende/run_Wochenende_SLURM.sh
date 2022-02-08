@@ -80,8 +80,12 @@ fi
 # Run script - Paired end reads R2 will be calculated by replacing R1 with R2
 # Uncomment/adapt the only line you want to run
 
+#2021_12. Update of 2021_10. 
+$scheduler python3 run_Wochenende.py --metagenome 2021_12_meta_fungi_human_masked --threads $cpus --aligner bwamem --no_abra --mq30 --remove_mismatching 3 --readType SE --debug --no_prinseq --force_restart $fastq
+#$scheduler python3 run_Wochenende.py --metagenome 2021_12_meta_fungi_human_masked --threads $cpus --aligner bwamem --no_abra --mq30 --remove_mismatching 3 --readType PE --debug --no_prinseq --force_restart $fastq
+
 #2021_10. Minor update of 2021_09. Streptococcus agalactiae double removed.
-$scheduler python3 run_Wochenende.py --metagenome 2021_10_meta_fungi_human_masked --threads $cpus --aligner bwamem --no_abra --mq30 --remove_mismatching 3 --readType SE --debug --no_prinseq --force_restart $fastq
+#$scheduler python3 run_Wochenende.py --metagenome 2021_10_meta_fungi_human_masked --threads $cpus --aligner bwamem --no_abra --mq30 --remove_mismatching 3 --readType SE --debug --no_prinseq --force_restart $fastq
 #$scheduler python3 run_Wochenende.py --metagenome 2021_10_meta_fungi_human_masked --threads $cpus --aligner bwamem --no_abra --mq30 --remove_mismatching 3 --readType PE --debug --no_prinseq --force_restart $fastq
 
 
@@ -143,7 +147,12 @@ $scheduler python3 run_Wochenende.py --metagenome 2021_10_meta_fungi_human_maske
 ## 2019 10 October metagenomes with Univec contamination
 #$scheduler python3 run_Wochenende.py --metagenome 2019_10_meta_human_univec --threads $cpus --aligner bwamem --no_abra --mq30 --remove_mismatching 3 --readType SE --no_prinseq --debug --force_restart $fastq
 
-# 2021_07 mouse
+# 2021_11 mouse
+#$scheduler python3 run_Wochenende.py --metagenome 2021_11_meta_fungi_mouse_masked --threads $cpus --aligner bwamem --no_abra --mq30 --remove_mismatching 3 --readType SE --debug --no_prinseq --force_restart $fastq
+#$scheduler python3 run_Wochenende.py --metagenome 2021_11_meta_fungi_mouse_masked --threads $cpus --aligner bwamem --no_abra --mq30 --remove_mismatching 3 --readType PE --debug --no_prinseq --force_restart $fastq
+
+
+# 2021_07 mouse - deprecated
 #$scheduler python3 run_Wochenende.py --metagenome 2021_07_meta_fungi_mouse_masked --threads $cpus --aligner bwamem --no_abra --mq20 --remove_mismatching 3 --readType SE --debug --no_prinseq --force_restart $fastq
 #$scheduler python3 run_Wochenende.py --metagenome 2021_07_meta_fungi_mouse_masked --threads $cpus --aligner bwamem --no_abra --mq20 --remove_mismatching 3 --readType PE --debug --no_prinseq --force_restart $fastq
 
@@ -167,6 +176,12 @@ $scheduler python3 run_Wochenende.py --metagenome 2021_10_meta_fungi_human_maske
 # Univec added for exclusion of contamination
 #$scheduler python3 run_Wochenende.py --metagenome 2019_10_meta_human_univec --threads $cpus --aligner bwamem --no_abra --mq30 --remove_mismatching 3 --readType SE --debug --no_prinseq --force_restart $fastq
 
+# Seqins from Anaquini metasequin_sequences_3.0.fa. If present, final eg calmd.bams probably have MB size files, but check alignments.
+#$scheduler python3 run_Wochenende.py --metagenome seqins_v3 --threads $cpus --readType SE --debug --force_restart --no_abra --no_fastqc --mq30 --remove_mismatching 3 --no_prinseq $fastq
+
+#plasmids
+#$scheduler python3 run_Wochenende.py --metagenome ssplasmid1 --threads $cpus --aligner minimap2long --longread --debug --force_restart --no_prinseq $fastq
+#$scheduler python3 run_Wochenende.py --metagenome ssplasmid2 --threads $cpus --aligner minimap2long --longread --debug --force_restart --no_prinseq $fastq
 
 # Genomes
 #$scheduler python3 run_Wochenende.py --metagenome strept_halo --threads $cpus --readType SE --debug --force_restart --no_prinseq $fastq
@@ -182,7 +197,7 @@ $scheduler python3 run_Wochenende.py --metagenome 2021_10_meta_fungi_human_maske
 #$scheduler python3 run_Wochenende.py --metagenome hg19 --threads $cpus --longread --remove_mismatching 250 --debug --force_restart --no_prinseq $fastq
 #$scheduler python3 run_Wochenende.py --metagenome hg19 --threads $cpus --readType PE --no_duplicate_removal --debug --force_restart --no_prinseq $fastq
 #$scheduler python3 run_Wochenende.py --metagenome GRCh37 --threads $cpus --readType PE --aligner bwamem --no_duplicate_removal --no_abra --force_restart --no_prinseq $fastq
-#$scheduler python3 run_Wochenende.py --metagenome mm10 --threads $cpus --readType PE --aligner bwamem --force_restart --no_prinseq $fastq
+#$scheduler python3 run_Wochenende.py --metagenome mm10 --threads $cpus --readType PE --aligner bwamem --no_abra --remove_mismatching 4 --force_restart --no_prinseq $fastq
 #$scheduler python3 run_Wochenende.py --metagenome mm10 --threads $cpus --no_duplicate_removal --no_abra --readType SE --longread --aligner minimap2long --debug --force_restart --no_prinseq $fastq
 #$scheduler python3 run_Wochenende.py --metagenome rat_1AR1_ont --threads $cpus --no_duplicate_removal --readType SE --aligner bwa --debug --force_restart --no_prinseq $fastq
 #$scheduler python3 run_Wochenende.py --metagenome ss11 --threads $cpus --readType PE --no_duplicate_removal --no_abra --debug --force_restart --no_prinseq $fastq
@@ -191,7 +206,7 @@ $scheduler python3 run_Wochenende.py --metagenome 2021_10_meta_fungi_human_maske
 #$scheduler python3 run_Wochenende.py --metagenome GRCh38-noalt --threads $cpus --readType SE --aligner minimap2long --longread --no_duplicate_removal --no_abra --force_restart --no_prinseq $fastq
 #$scheduler python3 run_Wochenende.py --metagenome GRCh38-noalt --threads $cpus --readType SE --aligner bwamem --no_duplicate_removal --no_abra --force_restart --no_prinseq $fastq
 #$scheduler python3 run_Wochenende.py --metagenome GRCh38-noalt --threads $cpus --readType PE --aligner bwamem --no_duplicate_removal --no_abra --remove_mismatching 3 --mq30 --force_restart --no_prinseq $fastq
-
+#$scheduler python3 run_Wochenende.py --metagenome T2T_v1_1 --threads $cpus --readType SE --aligner minimap2long --longread --no_duplicate_removal --no_abra --force_restart --no_prinseq $fastq
 
 # Test wochenende pipeline. Run tests with sbatch run_Wochenende_SLURM.sh testdb/reads_R1.fastq
 #$scheduler python3 run_Wochenende.py --metagenome testdb --threads $cpus --testWochenende --aligner bwamem --mq30 --remove_mismatching 3 --readType SE --debug --force_restart $fastq
