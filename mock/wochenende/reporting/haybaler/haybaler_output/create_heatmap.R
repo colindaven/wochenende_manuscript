@@ -48,6 +48,10 @@ output_pdf = paste0(file,"_","heatmap.pdf")
 output_html = paste0(file,"_","heatmaply.html")
 output_png = paste0(file,"_","heatmaply.png")
 
+#suppress warnings from this script. 
+oldw <- getOption("warn")
+options(warn = -1)
+
 # Read the Data
 data = sprintf("%s/%s", path, file)
 your_data = read.csv(data, sep="\t", header=TRUE, row.names = 1)
@@ -63,7 +67,10 @@ size_columns <- 0.6
 
 # 50 taxa is the reference. The proportion to 50 taxa is calculate to adjust the size of the pdf 
 num_taxa <- nrow(your_data_2)
-heatmap_size <- num_taxa / 50 
+heatmap_size <- num_taxa / 50
+if(heatmap_size < 1){
+        heatmap_size <- 1
+}
 
 # Set the working directory
 setwd(directory)
@@ -79,7 +86,7 @@ heatmap(
 ) 
 #attempt to add scale/ legend
 legend(x="bottomright", legend=c("min", "ave", "max"),
-     fill=colorRampPalette(brewer.pal(8, "Oranges"))(3))
+       fill=colorRampPalette(brewer.pal(8, "Oranges"))(3))
 
 dev.off()
 
@@ -94,10 +101,24 @@ heatmap(
 )
 #attempt to add scale/ legend
 legend(x="bottomright", legend=c("min", "ave", "max"), 
-     fill=colorRampPalette(brewer.pal(8, "Oranges"))(3))
+       fill=colorRampPalette(brewer.pal(8, "Oranges"))(3))
 
 dev.off()
 
+# log heatmap
+output_pdf = paste0(file,"_","heatmap3_log2.pdf")
+pdf(output_pdf, width=16*heatmap_size, height=8*heatmap_size)
+heatmap(
+        log2(your_data_2 + 1), 
+        cexRow = size_rows, 
+        cexCol = size_columns, 
+        col = colorRampPalette(brewer.pal(8, "Oranges"))(25)
+) 
+#attempt to add scale/ legend
+legend(x="bottomright", legend=c("min", "ave", "max"),
+       fill=colorRampPalette(brewer.pal(8, "Oranges"))(3))
+
+dev.off()
 
 # create an interactive HTML heatmap with heatmaply
 # Other color options see https://www.r-graph-gallery.com/38-rcolorbrewers-palettes.html
@@ -126,8 +147,19 @@ heatmaply(
         file=c(output_html)
 )
 
+# log2
+output_html = paste0(file,"_","heatmaply3_log2.html")
+heatmaply(
+        log2(your_data_2 + 1), 
+        #color = YlGn,
+        #color = Blues,
+        color = cool_warm,
+        #file=c(output_html, output_png)  #png needs another missing dependency
+        file=c(output_html)
+)
+
 # percentize (like percentage ranks)
-output_html = paste0(file,"_","heatmaply3_percentize.html")
+output_html = paste0(file,"_","heatmaply4_percentize.html")
 heatmaply(
         percentize(your_data_2), 
         #color = YlGn,
@@ -137,3 +169,5 @@ heatmaply(
         file=c(output_html)
 )
 
+#reset warnings to on
+options(warn = oldw)
