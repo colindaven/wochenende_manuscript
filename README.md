@@ -1,11 +1,19 @@
 # Wochenende manuscript
 
-This is the code used for running the programs associated with the Wochenende manuscript, Scheithauer et al. Biorxiv 
+This is the code used for running the programs associated with the mock community analyses for the Wochenende manuscript. 
 
-Full citation to come
+Repo Authors:
+Colin Davenport
+Ilona Rosenboom
+Sophia Poertner
+
+Citation:
+Rosenboom, Scheithauer et al. Biorxiv 2022
 
 
-# Metagenomic programs used
+
+
+# Metagenomic programs used (see references in the preprint linked above)
 
 ## Kaiju
 
@@ -19,4 +27,5 @@ Full citation to come
 
 ## Further analysis scripts
 
+R barplotting
 Python Pandas scripts
