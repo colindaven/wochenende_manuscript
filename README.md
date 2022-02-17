@@ -3,8 +3,11 @@
 This is the code used for running the programs associated with the mock community analyses for the Wochenende manuscript. 
 
 Repo Authors:
+
 Colin Davenport
+
 Ilona Rosenboom
+
 Sophia Poertner
 
 Citation:
@@ -28,4 +31,5 @@ Rosenboom, Scheithauer et al. Biorxiv 2022
 ## Further analysis scripts
 
 R barplotting
+
 Python Pandas scripts
