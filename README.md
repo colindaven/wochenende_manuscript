@@ -1,6 +1,6 @@
 # Wochenende manuscript
 
-This is the code used for running the programs associated with the mock community analyses for the Wochenende manuscript. 
+This is the code and data used for running the programs associated with the mock community analyses for the Wochenende manuscript. 
 
 Repo Authors:
 
@@ -16,19 +16,19 @@ Rosenboom, Scheithauer et al. Biorxiv 2022
 
 
 
-# Metagenomic programs used (see references in the preprint linked above)
+## Metagenomic programs used (see references in the preprint linked above)
 
-## Kaiju
+### Kaiju
 
-## Kraken-uniq
+### Kraken-uniq
 
-## Centrifuge
+### Centrifuge
 
-## Wochenende and Haybaler
+### Wochenende and Haybaler
 
-## Metaphlan
+### Metaphlan
 
-## Further analysis scripts
+### Further analysis scripts
 
 R barplotting
 
